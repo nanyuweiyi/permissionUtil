@@ -4,17 +4,13 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.ArrayMap;
 import android.util.Log;
 
-import com.yxp.permission.util.lib.PermissionInfo;
 import com.yxp.permission.util.lib.callback.PermissionOriginResultCallBack;
 import com.yxp.permission.util.lib.callback.PermissionResultCallBack;
 
@@ -77,7 +73,7 @@ public class PermissionUtil {
      *
      * @param permission The name of the permission being checked.
      * @return PermissionUtil.PERMISSION_GRANTED / PERMISSION_DENIED / PERMISSION_RATIONAL or {@code null}
-     *         if context is not instanceof Activity.
+     * if context is not instanceof Activity.
      */
     @TargetApi(Build.VERSION_CODES.M)
     public int checkSinglePermission(String permission) {
@@ -110,7 +106,7 @@ public class PermissionUtil {
      *
      * @param permissions The name of the permission being checked.
      * @return Map<String, List<PermissionInfo>> or {@code null}
-     *         if context is not instanceof Activity or topActivity can not be find
+     * if context is not instanceof Activity or topActivity can not be find
      */
     public Map<String, List<PermissionInfo>> checkMultiPermissions(String... permissions) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -345,7 +341,6 @@ public class PermissionUtil {
      * 通过开启一个新的activity作为申请权限的媒介
      */
     private void requestPermissions() {
-
         Intent intent = new Intent(mActivity, HelpActivity.class);
         intent.putExtra("permissions", mPermissions);
         if (mRequestCode < 0) {
@@ -521,6 +516,7 @@ public class PermissionUtil {
 
     /**
      * 通过反射的方法获取最上层的Activity
+     *
      * @return
      */
     private Activity getTopActivity() {
@@ -573,6 +569,7 @@ public class PermissionUtil {
 
     /**
      * 将字符串数组转换为PermissionInfoList
+     *
      * @param permissions
      * @return
      */

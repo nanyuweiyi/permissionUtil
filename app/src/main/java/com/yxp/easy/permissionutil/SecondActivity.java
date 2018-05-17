@@ -14,6 +14,7 @@ import com.yxp.permission.util.lib.callback.PermissionResultAdapter;
  * Created by yanxing on 16/1/19.
  */
 public class SecondActivity extends Activity {
+
     private Button btn;
 
     @Override
